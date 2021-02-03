@@ -1,0 +1,149 @@
+body {
+	background-color: #000;
+	display: grid;
+	/*align-items: center;  */
+  	justify-content: center;
+  	background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    background-repeat: no-repeat;
+    height: 100vh;
+
+
+}
+
+.eye-set {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: relative;
+}
+.eye {
+	clip-path: ellipse(40% 40% at 50% 50%);
+	width: 200px;
+	height: 200px;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: visible;
+}
+.pupil {
+	clip-path: circle(50%);
+	width: 50px;
+	height: 50px;
+	background-color: black;
+	animation: rolling-pupil 3s ease infinite;
+	animation-delay: 1s; 
+}
+
+.test-phase {
+    position: absolute;
+    clip-path: polygon(100% 0, 61% 39%, 4% 95%, 0 100%);
+    transition: clip-path 1s;
+    background-color: red;
+    width: 800px;
+    height: 400px;
+    z-index: 999;
+    opacity: 0;
+    top: 10em;
+    left: -30em;
+}
+
+label {
+    color: white;
+    background-color: red;
+    padding: 1em;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 5px 5px 12px rgb(0 0 0 / 50%);
+    border-radius: 5px;
+    font-family: roboto;
+    height: 2em;
+}
+input[name="shoot"] {
+	display: none;
+}
+#shoot:checked ~ .test-phase {
+	opacity: 1;
+	animation: morph .5s forwards;
+}
+#shoot:checked ~ .eye {
+	animation: squint 3s cubic-bezier(.36,.86,.57,.28) forwards .2s;
+}
+#shoot:checked ~ .eye .pupil {
+	animation: bigger-pupil 1s ease infinite;
+}
+@keyframes morph {
+
+	0% {
+		clip-path: polygon(100% 0, 61% 39%, 4% 95%, 0 100%);
+	}
+	25% {
+		clip-path: polygon(100% 0, 61% 39%, 4% 95%, 53% 48%);
+	}
+	50% {
+		clip-path: polygon(100% 0, 100% 0, 30% 71%, 81% 16%);
+	}
+	75% {
+		clip-path: polygon(100% 0, 100% 0, 74% 25%, 81% 16%);
+	}
+	100% {
+		clip-path: polygon(100% 0, 100% 0, 94% 5%, 81% 16%);
+		opacity: 0;
+	}
+}
+
+@keyframes rolling-pupil {
+	0% {
+		margin-left: 0;
+		margin-top: 0;
+	}
+	20% {
+		margin-left: 2em;
+		margin-top: 0;
+	}
+	30% {
+		margin-left: 2em;
+		margin-top: 1.5em;
+	}
+	50% {
+		margin-left: 0;
+		margin-top: .5em;
+	}
+	80% {
+		margin-left: -3em;
+		margin-top: 0;
+	}
+	100% {
+		margin-left: 0;
+		margin-top: 0;
+	}
+}
+
+@keyframes squint {
+	0% {
+		clip-path: ellipse(40% 21% at 50% 50%);
+	}
+	100% {
+		clip-path: ellipse(40% 40% at 50% 50%);
+	}
+}
+
+@keyframes bigger-pupil {
+	0% {
+		clip-path: circle(50%);
+	}
+
+	25% {
+		clip-path: circle(50%);
+		transform: scale(1.5);
+		background-color: orange;
+
+            
+	}
+	100% {
+		clip-path: circle(50%);
+
+	}
+}
