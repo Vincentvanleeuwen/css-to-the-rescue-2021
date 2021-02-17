@@ -7,6 +7,11 @@
   font-family: "Montserrat Light";
   src: url("./fonts/Montserrat-Light.ttf") format("truetype");
 }
+html, body
+{
+  height: 100%;
+}
+
 /* Header */
 header {
   position: fixed;
@@ -14,7 +19,7 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 15vh;
-
+  z-index: 999;
 }
 section {
   display: flex;
@@ -69,27 +74,39 @@ section h2 {
 
 /* Dishes */
 main {
+  height: 100%;
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
   position: relative;
 
 }
-/* Egg */
-main section {
-  transform-style:preserve-3d;
-  transition: 0.5s;
-  perspective: 20em;
+
+main section{
   animation-play-state: running;
   min-width: 30vw;
   max-width: 40vw;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, 100%) scale(.0);
   opacity: 0;
-  animation: slide-food 1s cubic-bezier(.58,.01,.5,1.5) 3.5s forwards;
+  height: max-content;
+}
 
+@keyframes slide-food {
+  to {
+    position: relative;
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+/* Egg */
+main section:first-of-type {
+  transform-style:preserve-3d;
+  transition: 0.5s;
+  perspective: 20em;
+  left: 45%;
+  top: 2%;
+  transform: translate(-35%, 8%) scale(0);
+  animation: slide-food 1s cubic-bezier(.58,.01,.5,1.5) 3.5s forwards;
 }
 main section:first-of-type:hover article {
   animation: boiling-egg 4s ease-in infinite;
@@ -99,7 +116,7 @@ main section:first-of-type:hover article {
 
 main section:first-of-type article {
   position:relative;
-  transform-origin: center;
+  transform-origin: bottom;
   width: 45vw;
   height: 35vw;
   border-radius: 36% 69% 70% 43% / 40% 58% 60% 70%;
@@ -177,13 +194,7 @@ main section:first-of-type article:last-of-type h3 {
   font-family: "Spectral Bold", serif;
 }
 
-@keyframes slide-food {
-  to {
-    position: relative;
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-}
+
 /* Egg Animations */
 @keyframes runny-egg {
   0% { background-position: 50% 50%; }
@@ -207,3 +218,48 @@ main section:first-of-type article:last-of-type h3 {
 
 }
 
+/*Toast*/
+main section:nth-child(2) {
+
+  left: -35%;
+  top: 7%;
+  transform: translate(100%, 50%) scale(0);
+  animation: slide-food 1s cubic-bezier(.58,.01,.5,1.5) 4.5s forwards;
+}
+main section:nth-child(2) article {
+  width: 100%;
+  height: max-content;
+
+}
+/*main section:nth-child(2) article:hover svg {*/
+/*  animation: rotating-toast 5s infinite;*/
+/*  animation-play-state: running;*/
+/*}*/
+main section:nth-child(2) article:hover svg g {
+
+}
+main section:nth-child(2) article svg {
+  transform: rotate3d(26, -6, 15, 321deg);
+  animation-play-state: paused;
+}
+main section:nth-child(2) article svg path:nth-child(5){
+  color: #fff;
+}
+
+@keyframes rotating-toast {
+  to {
+    transform: rotate3d(26, -6, 15, 0deg);
+  }
+}
+
+@media screen and (max-width: 43em) {
+  main section:first-child {
+    left: 35%;
+    top: 2%;
+
+  }
+  main section:nth-child(2) {
+    left: 0;
+    top: 20%;
+  }
+}
