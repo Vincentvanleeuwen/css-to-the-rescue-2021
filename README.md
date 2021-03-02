@@ -1,15 +1,15 @@
 # CSS to the Rescue @cmda-minor-web 2020 - 2021
 
-## Opdracht
-Bij dit vak ga ik css helemaal ontleden. Ik ga een restaurant menu maken, maar dan out of the box, geen standaard menu.
-Er zal veel interactie en animatie bij komen kijken.
+## Assignment
 
-Het lijkt me daarom interessant om te kijken naar print opties van het menu en ook naar de verschillende kleur modes zoals dark mode.
-Kwa restricties wil ik waarschijnlijk gaan kijken of ik zonder vierkanten, rechthoeken, cirkels en driehoeken kan werken. Als tweede restrictie ga ik waarschijnlijk SVG toepassen in shapes, masks en filters.
+For the restaurant Russ & Daughters I'm creating an interactive order page. Here you can order an egg and a toast. You can also add ingredients to the egg and the toast. It'll contain a lot of animation.
 
-De grootste uitdaging hiervan is het niet gebruiken van de meest gebruikte vormen. Op sommige aspecten weet ik nog niet hoe ik dit ga doen, maar het is een erg leuke uitdaging.
+I will not be using circles, squares, rectangles and triangles in this project.
+I will be looking at trying to reduce the motion of animations when reduced motion is turned on.
+I will change the colors of the website when darkmode is turned on.
+At last I will also add SVG's, SVG Masks and SVG Filters.
 
-## Schets
+## Sketch
 
 [Schets](https://github.com/Vincentvanleeuwen/css-to-the-rescue-2021/blob/master/docs/img/schets.jpg?raw=true)
 
