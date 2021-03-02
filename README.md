@@ -25,11 +25,6 @@ At last I will also add SVG's, SVG Masks and SVG Filters.
 [First Prototype](https://gyazo.com/e04c359db4faf4f852ec02f502f34c85)
 [Final Product](https://menu-animations.netlify.app/)
 
-## Teachers
-- Vasilis van Gemert
-- Thijs Spijker
-- Sanne 't Hooft
-- Leonie Smits
-- 
+
 ## Sources
 [Morphing SVGs](https://webkul.com/blog/morphing-using-svg-animate-css/)
