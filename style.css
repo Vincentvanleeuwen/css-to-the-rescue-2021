@@ -1,0 +1,720 @@
+@font-face {
+  font-family: "Spectral Bold";
+  src: url("./fonts/Spectral-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Light";
+  src: url("./fonts/Montserrat-Light.ttf") format("truetype");
+}
+:root {
+  --light-color: white;
+  --dark-color: #313131;
+  --cta-color: #FE9D65;
+}
+html, body
+{
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+/* Header */
+header {
+  height: 20vh;
+  margin-top: 5rem;
+  grid-row-start: 1;
+  z-index: 999;
+}
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+header section h1 {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  font-family: "Spectral Bold", serif;
+  animation: grow 1.5s steps(18, end);
+  font-size: clamp(1rem, 4vw, 3rem);
+  color: var(--dark-color);
+  /*font-size: calc(12px + 6vw);font-size: calc(12px + 6vw);*/
+}
+header section div {
+  animation: grow 1s forwards 1s;
+  height: 2px;
+  width: 0;
+  background-color: var(--dark-color);
+  margin-bottom: 1em;
+}
+section h2 {
+  animation: slide-in 1s forwards 2s;
+  opacity: 0;
+  margin: -2em;
+  font-size: clamp(1rem, 3vw, 3rem);
+  color: var(--dark-color);
+}
+
+/* The typing effect */
+@keyframes grow {
+  from {
+    width: 0
+  }
+  to {
+    width: 8em
+  }
+}
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    margin-top: -2em;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+
+/* Dishes */
+main {
+  height: 100%;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  position: relative;
+
+}
+
+main section{
+  animation-play-state: running;
+  width: 100%;
+  margin-top: 5rem;
+  height: 100%;
+}
+
+@keyframes slide-food {
+  to {
+    position: relative;
+    transform: translate(0, 0) scale(.7);
+    opacity: 1;
+  }
+}
+/* Egg */
+main section:first-child{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  transform-style:preserve-3d;
+  transition: 0.5s;
+  perspective: 20em;
+
+  transform: translate(-35%, 8%) scale(0);
+  animation: slide-food 1s cubic-bezier(.58,.01,.5,1.5) 3.5s forwards;
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+main section:first-of-type section:last-of-type {
+  margin-top: 0;
+}
+main section:first-of-type section:first-of-type:hover article {
+  animation: boiling-egg 4s ease-in infinite;
+  transform: rotateX(.5turn);
+  transition: transform 1s cubic-bezier(.58,.01,.29,.87) .5s;
+}
+
+
+main section:first-of-type article {
+  position: absolute;
+  top: 0;
+  transform-origin: center;
+  width: 45vw;
+  height: 35vw;
+  border-radius: 36% 69% 70% 43% / 40% 58% 60% 70%;
+  animation: boiling-egg 4s ease-in infinite;
+  transform: rotateX(0.1turn);
+  transition: transform 1s;
+}
+
+/* Front egg dish*/
+main section:first-of-type article:first-of-type {
+  background-color: antiquewhite;
+  background: radial-gradient(
+    ellipse at 10% 15.5%,
+    #f1edcf 7%,
+    antiquewhite 7%
+  );
+  backface-visibility: hidden;
+  z-index: 10;
+}
+
+/* Back egg dish*/
+main section:first-of-type article:last-of-type {
+  position:absolute;
+  top: 0;
+  background-color: antiquewhite;
+  background:
+    radial-gradient(circle at 36% 82%, #f3e0a9 5px, transparent 2px),
+    radial-gradient(circle at 55% 38%, #f3e0a9 23px, transparent 2px),
+    radial-gradient(circle at 36% 22%, #f3e0a9 12px, transparent 2px),
+    radial-gradient(circle at 39% 61%, #f3e0a9 10px, transparent 2px),
+    radial-gradient(circle at 72% 32%, #f3e0a9 5px, transparent 2px),
+    radial-gradient(circle at 88% 50%, #f3e0a9 12px, transparent 2px),
+    radial-gradient(circle at 20% 43%, #f3e0a9 11px, transparent 2px),
+    radial-gradient(circle at 65% 65%, #f3e0a9 11px, transparent 2px),
+    radial-gradient(circle at 74% 79%, #f3e0a9 11px, transparent 2px),
+    radial-gradient(circle at 21% 75%, #f3e0a9 11px, antiquewhite 2px);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+/* Egg Yolk */
+main section:first-of-type article:first-of-type div {
+  background:
+    radial-gradient(
+      ellipse at 50% 50.5%,
+      #ecc45e 7%,
+      transparent 7%
+    ),
+    radial-gradient(
+      ellipse at 52% 51%,
+      #fffd87 5%,
+      transparent 5%
+    ),
+    radial-gradient(
+      ellipse at center,
+      #ecc45e 10%,
+      transparent 10%
+    );
+  background-position: 50% 50%;
+  background-size: 200% 200%;
+  animation: runny-egg 5s cubic-bezier(.58,.01,.29,.87) infinite;
+  width: 100%;
+  height: 100%;
+  animation-play-state: running;
+}
+
+/* Add bacon or mushroom to the egg!*/
+main section:first-of-type section:first-of-type article svg {
+  opacity: 0;
+  transition: .5s;
+  position: absolute;
+  top:0;
+}
+/* Positioning of bacon and mushroom*/
+main section:first-of-type input[type="checkbox"]:first-of-type:checked ~ section:first-of-type article:first-of-type svg:first-of-type {
+  opacity: 1;
+  transform: rotateX(.1turn) scale(1) translate(5%, 30%);
+}
+
+main section:first-of-type input[type="checkbox"]:last-of-type:checked ~ section:first-of-type article:first-of-type  svg:last-of-type {
+  opacity: 1;
+  transform: rotateX(.1turn) scale(.5) translate(71%, 0%);
+}
+
+main section:first-of-type article svg:last-of-type {
+  transform: scale(.5);
+}
+
+/* Title content egg*/
+main section:first-of-type input[type="checkbox"] {
+  display: none;
+}
+
+
+main section:first-of-type section:last-of-type h3 {
+  font-size: clamp(1rem, 4vw, 3rem);
+  font-family: "Spectral Bold", serif;
+  color: var(--dark-color);
+  white-space: nowrap;
+}
+main section:first-of-type section:last-of-type h3:after {
+  content: "Plain Egg | €2,95";
+}
+main section:first-of-type input[type="checkbox"]:first-of-type:checked ~ section:last-of-type h3:after {
+  content: "Egg & Bacon | 3,95";
+}
+main section:first-of-type input[type="checkbox"]:last-of-type:checked ~ section:last-of-type h3:after {
+  content: "Egg & Mushroom | 3,95";
+}
+main section:first-of-type input[type="checkbox"]:checked + input[type="checkbox"]:checked ~ section:last-of-type h3:after{
+  content: "Egg & Bacon & Mushroom | 4,95";
+}
+/* Egg Form */
+main section:first-of-type section:last-of-type form fieldset {
+  display: flex;
+  flex-direction: column;
+  border:none;
+}
+main section:first-of-type section:last-of-type form fieldset legend {
+  font-family: "Montserrat Light", sans-serif;
+  font-size: clamp(1rem, 3.5vw, 3rem);
+}
+main section:first-of-type section:last-of-type form fieldset label {
+  font-family: "Montserrat Light", sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+  margin: 0.5em 0;
+  width: max-content;
+  border-bottom: 1px solid;
+}
+main section:first-of-type input[type="checkbox"]:first-of-type:checked ~ section:last-of-type form fieldset label[for="bacon"]{
+  font-weight: bold;
+}
+main section:first-of-type input[type="checkbox"]:last-of-type:checked ~ section:last-of-type form fieldset label[for="mushroom"]{
+  font-weight: bold;
+}
+
+/* Egg Animations */
+@keyframes runny-egg {
+  0% { background-position: 50% 50%; }
+  20% { background-position: 54% 45%; }
+  40% { background-position: 45% 50%; }
+  60% { background-position: 45% 48%; }
+  80% { background-position: 46% 51%; }
+  100% { background-position: 50% 50%;}
+
+}
+@keyframes boiling-egg {
+  0% {
+    border-radius: 36% 69% 70% 43% / 40% 58% 60% 70%;
+  }
+  50% {
+    border-radius: 40% 80% 70% 30% / 40% 40% 60% 57%;
+  }
+  100% {
+    border-radius: 36% 69% 70% 43% / 40% 58% 60% 70%;
+  }
+
+}
+
+/*Toast*/
+main section:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  transform: translate(100%, 50%) scale(0);
+  animation: slide-food 1s cubic-bezier(.58,.01,.5,1.5) 4s forwards;
+  grid-column-start: 1;
+  grid-row-start: 2;
+
+}
+main section:nth-child(2) article {
+  width: 100%;
+  height: 17em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transform: scale(.6);
+}
+/*main section:nth-child(2) article svg {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*}*/
+/*main section:nth-child(2) article svg:first-of-type {*/
+/*  position: absolute;*/
+/*  bottom:0;*/
+/*  left:0;*/
+/*  right:0;*/
+/*}*/
+main section:nth-child(2) article svg:nth-child(2),
+main section:nth-child(2) article svg:nth-child(3),
+main section:nth-child(2) article svg:last-of-type {
+  transform: scale(.7);
+  z-index: -1;
+  margin-bottom: 4em;
+  position: absolute;
+  bottom: 10em;
+  left: 0;
+  right: 0;
+  /*transform: rotate3d(26, -6, 15, 321deg);*/
+
+}
+
+/*main section:nth-child(2) article svg:last-of-type g{*/
+/*  clip-path: url("#knockout-text");*/
+/*}*/
+main section:nth-child(2) article svg:first-of-type g path {
+  fill:#3d3636;
+}
+main section:nth-child(2) article svg:first-of-type g path:last-of-type {
+  fill:#c15353;
+}
+main section:nth-child(2) article svg:nth-child(2) g path {
+  fill:#d8c6a3;
+  stroke:#eaca96;
+  stroke-miterlimit:10;
+  stroke-width:3px;
+}
+main section:nth-child(2) article svg:nth-child(2) g path:first-of-type {
+  fill:#eadbc1;
+}
+main section:nth-child(2) article svg:nth-child(2) g path:not(:first-of-type) {
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+main section:nth-child(2) article:hover svg:nth-child(2),
+main section:nth-child(2) article:hover svg:nth-child(3),
+main section:nth-child(2) article:hover svg:last-of-type {
+  animation: toasting-toast 3s cubic-bezier(.39,-0.24,.62,1.22) forwards;
+  transform: rotate3d(0, 0, 0, 0deg) scale(0.5);
+}
+main section:nth-child(2) article svg:first-of-type g path:not(:last-of-type) {
+  fill: var(--dark-color);
+}
+main section:nth-child(2) article:hover svg:first-of-type g path:nth-child(3) {
+  animation: toaster-handle 2.1s ease forwards;
+
+}
+main section:nth-child(2) article svg:first-of-type g path:nth-child(3) {
+  transform: rotate(0deg) translate(0, 0);
+}
+main section:nth-child(2) article:hover svg:nth-child(2) g path:not(:first-of-type) {
+  opacity: 1;
+}
+main section:nth-child(2) article svg:nth-child(3),
+main section:nth-child(2) article svg:last-of-type {
+  opacity: 0;
+  transition: .5s;
+
+
+}
+main section:nth-child(2) input[type="checkbox"]:first-of-type:checked ~ article:first-of-type svg:nth-child(3),
+main section:nth-child(2) input[type="checkbox"]:last-of-type:checked ~ article:first-of-type svg:last-of-type {
+  opacity: 1;
+}
+/* Necessary use of ID for clipPath usage.*/
+#knockout-text text {
+  font-weight: bold;
+  font-family: 'Spectral Bold', serif;
+  font-size: 1.8em;
+}
+
+main section:nth-child(2) article svg path:nth-child(5){
+  color: #fff;
+}
+/*Title content toast*/
+main section:nth-child(2) input[type="checkbox"] {
+  display: none;
+}
+
+
+main section:nth-child(2) section:last-of-type h3 {
+  font-size: clamp(1rem, 4vw, 3rem);
+  font-family: "Spectral Bold", serif;
+  white-space: nowrap;
+}
+main section:nth-child(2) section:last-of-type h3:after {
+  content: "Toastie | €1,95";
+}
+main section:nth-child(2) input[type="checkbox"]:first-of-type:checked ~ section:last-of-type h3:after {
+  content: "Toastie & Ham | 3,95";
+}
+main section:nth-child(2) input[type="checkbox"]:last-of-type:checked ~ section:last-of-type h3:after {
+  content: "Toastie & Cheese | 2,95";
+}
+main section:nth-child(2) input[type="checkbox"]:checked + input[type="checkbox"]:checked ~ section:last-of-type h3:after{
+  content: "Toastie & Cheese & Ham | 5,95";
+}
+/* Egg Form */
+main section:nth-child(2) section:last-of-type form fieldset {
+  display: flex;
+  flex-direction: column;
+  border:none;
+}
+main section:nth-child(2) section:last-of-type form fieldset legend {
+  font-family: "Montserrat Light", sans-serif;
+  font-size: clamp(1rem, 3.5vw, 3rem);
+}
+main section:nth-child(2) section:last-of-type form fieldset label {
+  font-family: "Montserrat Light", sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+  margin: 0.5em 0;
+  width: max-content;
+  border-bottom: 1px solid;
+}
+main section:nth-child(2) input[type="checkbox"]:first-of-type:checked ~ section:last-of-type form fieldset label[for="bacon"]{
+  font-weight: bold;
+}
+main section:nth-child(2) input[type="checkbox"]:last-of-type:checked ~ section:last-of-type form fieldset label[for="mushroom"]{
+  font-weight: bold;
+}
+
+@keyframes toasting-toast {
+  0% {
+    margin-bottom: 4em;
+  }
+  25% {
+    margin-bottom: -5em;
+  }
+  50% {
+    margin-bottom: -5em;
+
+    transform: rotate3d(0, 0, 0, 0deg) scale(0.5);
+
+  }
+  80% {
+    margin-bottom: 25em;
+  }
+  90% {
+    z-index: -1;
+  }
+  100% {
+    margin-bottom: -25em;
+    transform: rotate3d(26, -6, 15, 2.2turn) scale(0.5);
+    z-index: 99;
+  }
+}
+@keyframes toaster-handle {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  20% {
+    transform: rotate(14deg) translate(16px, -11px);
+  }
+  80% {
+    transform: rotate(14deg) translate(16px, -11px);
+  }
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}
+
+/* Bacon */
+main section:nth-child(3){
+  grid-column-start: 1;
+  grid-row-start: 3;
+  animation: slide-food 1s cubic-bezier(.58,.01,.5,1.5) 5s forwards;
+}
+main section:nth-child(3) article {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+main section:nth-child(3) article svg {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+}
+
+/* Order button */
+main section:nth-child(3) button{
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  font-size: clamp(1rem, 3vw, 2rem);
+  background-color: var(--cta-color);
+  color: var(--light-color);
+  font-weight: bold;
+}
+main section:nth-child(3) button:focus + svg {
+  opacity: 1;
+  animation: shoot-lasers 4s infinite ease-in alternate;
+}
+main section:nth-child(3) svg {
+  position: absolute;
+  top: -33em;
+  opacity: 0;
+  /* width: 100vw; */
+  transform: rotate(0) scale(5);
+  height: 100vh;
+  z-index: -1;
+}
+@keyframes shoot-lasers {
+  from {
+    transform: rotate(0) scale(5);
+  }
+  to {
+    transform: rotate(-45deg) scale(5);
+  }
+}
+
+
+/* Small Screens */
+@media screen and (max-width: 43em) {
+  header {
+    margin-top: 3rem;
+  }
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr .2fr 1fr .2fr;
+  }
+  main section:first-of-type {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    margin-top: 2em;
+  }
+  main section:nth-child(2) {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    flex-direction: row-reverse;
+  }
+  main section:nth-child(2) article {
+    transform: scale(.5);
+  }
+
+  main section:nth-child(2) article {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  main section:nth-child(2) article:hover svg:last-of-type {
+    transform: rotate3d(0, 0, 0, 0deg) scale(0.7);
+  }
+  main section:nth-child(3) {
+    grid-column-start: 1;
+    grid-row-start: 4;
+  }
+  main section{
+    margin-top: 0;
+  }
+  @keyframes toasting-toast {
+    0% {
+      margin-bottom: 4em;
+    }
+    25% {
+      margin-bottom: -5em;
+    }
+    50% {
+      margin-bottom: -5em;
+
+      transform: rotate3d(0, 0, 0, 0deg) scale(0.7);
+
+    }
+    80% {
+      margin-bottom: 25em;
+    }
+    90% {
+      z-index: -1;
+    }
+    100% {
+      margin-bottom: -25em;
+      transform: rotate3d(26, -6, 15, 2.2turn) scale(0.7);
+      z-index: 99;
+    }
+  }
+}
+@media screen and (max-width: 30em) {
+  main section {
+    animation-play-state: running;
+    width: 100%;
+    margin-top: 5rem;
+    height: 40vh;
+  }
+  main section:first-of-type {
+    flex-direction: column;
+    margin-top: 3em;
+  }
+  main section:nth-child(2) {
+    flex-direction: column;
+    margin-top: 8rem;
+  }
+  main section:nth-child(2) section:first-of-type {
+    margin-top:0;
+  }
+}
+@media screen and (min-width: 43em) {
+  main section:nth-child(2) article svg:nth-child(2), main section:nth-child(2) article svg:nth-child(3), main section:nth-child(2) article svg:last-of-type {
+    transform: scale(0.6);
+    bottom: 4em;
+  }
+}
+@media screen and (min-width:60em){
+  main section:nth-child(2) article svg:nth-child(2), main section:nth-child(2) article svg:nth-child(3), main section:nth-child(2) article svg:last-of-type {
+    transform: scale(0.35);
+    bottom: -3em;
+  }
+  @keyframes toasting-toast {
+    0% {
+      margin-bottom: 2em;
+    }
+    25% {
+      margin-bottom: -5em;
+    }
+    50% {
+      margin-bottom: -5em;
+
+      transform: rotate3d(0, 0, 0, 0deg) scale(0.35);
+
+    }
+    80% {
+      margin-bottom: 25em;
+    }
+    90% {
+      z-index: -1;
+    }
+    100% {
+      margin-bottom: -25em;
+      transform: rotate3d(26, -6, 15, 2.2turn) scale(0.35);
+      z-index: 99;
+    }
+  }
+}
+/* Tone down the animation to avoid vestibular motion triggers like scaling or panning large objects. */
+@media (prefers-reduced-motion) {
+  section h1{
+    animation: none;
+  }
+  section h2 {
+    animation: none;
+    opacity: 1;
+    margin-top: 0;
+  }
+  main section:first-of-type article:first-of-type div {
+    animation: none;
+  }
+  main section:first-of-type article {
+    animation: none;
+  }
+   main section:first-child, main section:nth-child(2), main section:nth-child(3) {
+    animation: none;
+    position: relative;
+    transform: translate(0, 0) scale(.7);
+    opacity: 1;
+  }
+  main section:first-of-type section:first-of-type:hover article {
+    animation: none;
+    transform: rotateX(0);
+  }
+  main section:first-of-type section:first-of-type article svg {
+    transition: none;
+  }
+  main section:nth-child(3) button:focus + svg {
+    opacity: 0;
+    animation: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light-color: #313131;
+    --dark-color: white;
+  }
+  main section:nth-child(3) button {
+    color: var(--dark-color);
+  }
+}
