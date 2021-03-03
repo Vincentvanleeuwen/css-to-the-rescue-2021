@@ -530,20 +530,21 @@ main section:nth-child(3) button{
   color: var(--light-color);
   font-weight: bold;
 }
-main section:nth-child(3) button:focus + svg {
-  display: block;
-  opacity: 1;
-  animation: shoot-lasers 4s infinite ease-in alternate;
-}
+
 main section:nth-child(3) svg:not(main section section:nth-child(3) svg) {
-  display: none;
+
   position: absolute;
   top: -33em;
   opacity: 0;
   /* width: 100vw; */
   transform: rotate(0) scale(5);
-  height: 100vh;
+  height: 0;
   z-index: -1;
+}
+main section:nth-child(3) button:focus + svg {
+  height: 100vh!important;
+  opacity: 1!important;
+  animation: shoot-lasers 4s infinite ease-in alternate;
 }
 @keyframes shoot-lasers {
   from {
