@@ -531,10 +531,12 @@ main section:nth-child(3) button{
   font-weight: bold;
 }
 main section:nth-child(3) button:focus + svg {
+  display: block;
   opacity: 1;
   animation: shoot-lasers 4s infinite ease-in alternate;
 }
-main section:nth-child(3) svg {
+main section:nth-child(3) svg:not(main section section:nth-child(3) svg) {
+  display: none;
   position: absolute;
   top: -33em;
   opacity: 0;
