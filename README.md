@@ -11,14 +11,16 @@ I will change the colors of the website when darkmode is turned on.
 At last I will also add SVG's, SVG Masks and SVG Filters.
 
 ## CSS Techniques used
+
 - CSS Variables
 - Grid
 - Flexbox
-- Transform3D
+- Transform (3D, scale, rotate)
 - @font-face
 - @keyframes
 - Clamp()
 - Responsive units (em, rem, %, vw, vh)
+
 ## Products
 
 At first I had the idea to create a menu where you can look through the different sections of the menu via SVG illustrations of the food.
