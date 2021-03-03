@@ -19,14 +19,18 @@ At last I will also add SVG's, SVG Masks and SVG Filters.
 - @keyframes
 - Clamp()
 - Responsive units (em, rem, %, vw, vh)
-## Sketch
+## Products
 
+At first I had the idea to create a menu where you can look through the different sections of the menu via SVG illustrations of the food.
 [First Sketch](https://github.com/Vincentvanleeuwen/css-to-the-rescue-2021/blob/master/docs/img/schets.jpg?raw=true)
 
+Here I created the egg and toast as I first imagined it.
 [First Prototype](https://gyazo.com/e04c359db4faf4f852ec02f502f34c85)
 
+Because there was a lot of time pressure, I then changed the concept to a small interactive order page. 
 [Final Product](https://menu-animations.netlify.app/)
 
 
 ## Sources
 [Morphing SVGs](https://webkul.com/blog/morphing-using-svg-animate-css/)
+The Classes of Sanne & Vasilis
